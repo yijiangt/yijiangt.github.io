@@ -2568,6 +2568,18 @@ input, select, textarea {
 		position: relative;
 	}
 
+		.image-row {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+		}
+
+		.image-row img {
+		width: 22%;     /* 每张图占一行大约 1/4 */
+		border-radius: 6px; /* 可选：圆角 */
+		}
+
+
 		.image img {
 			border-radius: 0.25em;
 			display: block;
