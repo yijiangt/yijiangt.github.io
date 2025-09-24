@@ -171,6 +171,7 @@ input, select, textarea {
 	}
 
 	p {
+		font-family: cabinet grotesk;
 		margin: 0 0 2em 0;
 	}
 
@@ -2558,6 +2559,20 @@ input, select, textarea {
 				.wrapper.style3-alt .icon.major:before {
 					color: #953d75;
 				}
+
+/* a href */
+a.play-button {
+    color: #ffcc00;       /* 金黄色，更显眼 */
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+a.play-button:hover {
+    color: #ffffff;       /* hover 时变白 */
+    text-decoration: underline;
+}
+
 
 /* Image */
 
