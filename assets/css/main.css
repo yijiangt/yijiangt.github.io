@@ -252,6 +252,14 @@ input, select, textarea {
 		color: #000000;
 	}
 
+	.project-page p {
+		color: rgba(255, 255, 255, 0.7) !important;
+		line-height: 1.7;	
+		/* font-family: cabinet grotesk; */
+		font-size: 0.9em !important;
+		margin: 0 0 2em 0;
+	}
+
 
 	#header .logo {
 		width: 64px;
