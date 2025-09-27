@@ -267,9 +267,11 @@ input, select, textarea {
 		margin-right: 100px;
 	} */
 
-	body {
+	.index-page body,
+	.about-page body {
    		background-color: #eaeaea; /* 两边的浅灰色 */
 	}
+
 
 	.page-container {
 		background: #fff;
