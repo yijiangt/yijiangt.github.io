@@ -201,7 +201,14 @@ input, select, textarea {
 	.about-icons a:hover {
 		color: skyblue;
 	}
+	
+	.ml-4 {
+		margin-left: 1rem
+	}
 
+	.ml-3 {
+		margin-left: 0.9rem
+	}
 
 	#main p,
 	#main ul,
