@@ -428,6 +428,24 @@ input, select, textarea {
 
 
 
+	.video-responsive {
+		position: relative;
+		width: 100%;
+		padding-bottom: 56.25%; /* 高度 = 宽度 * 9/16 => 16:9 比例 */
+		height: 0;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+
+	.video-responsive iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;   /* 充满屏幕宽度 */
+		height: 100%;  /* 高度随比例自适应 */
+	}
+
+
 
 
 	h1, h2, h3, h4, h5, h6 {
