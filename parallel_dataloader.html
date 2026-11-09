@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Thread-Based PyTorch DataLoader | 15-418/618</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="icon" href="images/avatar.jpeg" type="image/jpeg">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Page-local styles for the 15-418 project page */
+			.project-page .course-tag {
+				color: #e8e288;
+				font-size: 0.75em;
+				font-weight: bold;
+				letter-spacing: 0.2em;
+				text-transform: uppercase;
+				margin-bottom: 0.5em;
+			}
+			.project-page .team {
+				color: rgba(255, 255, 255, 0.85) !important;
+				font-size: 1em !important;
+				margin-bottom: 1.5em !important;
+			}
+			.project-page .placeholder {
+				border: 1px dashed rgba(255, 255, 255, 0.3);
+				border-radius: 0.5em;
+				padding: 1em 1.25em;
+				color: rgba(255, 255, 255, 0.5);
+				font-size: 0.9em;
+				margin-bottom: 2em;
+			}
+			.project-page .chip {
+				display: inline-block;
+				font-size: 0.7em;
+				font-weight: bold;
+				letter-spacing: 0.05em;
+				padding: 0.2em 0.8em;
+				border-radius: 999px;
+				white-space: nowrap;
+			}
+			.project-page .chip.done  { background: rgba(120, 200, 140, 0.18); color: #9be3ad; }
+			.project-page .chip.doing { background: rgba(232, 226, 136, 0.18); color: #e8e288; }
+			.project-page .chip.todo  { background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.55); }
+			.project-page td.when {
+				white-space: nowrap;
+				color: rgba(255, 255, 255, 0.6);
+			}
+			.project-page table td { font-size: 0.85em; }
+			.project-page .log {
+				list-style: none;
+				padding-left: 0;
+				border-left: 2px solid rgba(255, 255, 255, 0.15);
+				margin-bottom: 2em;
+			}
+			.project-page .log li {
+				position: relative;
+				padding: 0 0 1em 1.25em;
+				color: rgba(255, 255, 255, 0.7);
+				font-size: 0.9em;
+			}
+			.project-page .log li:before {
+				content: "";
+				position: absolute;
+				left: -6px;
+				top: 0.6em;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: #b74e91;
+			}
+			.project-page .log li p {
+				margin: 0 !important;
+			}
+			.project-page .log .date {
+				display: block;
+				color: rgba(255, 255, 255, 0.45);
+				font-size: 0.85em;
+			}
+		</style>
+	</head>
+	<body class="project-page">
+
+		<!-- Header -->
+			<header id="header">
+                <a href="index.html" class="title">
+                    <img src="images/avatar.jpeg" alt="My Avatar" class="logo">
+                </a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+                        <li><a href="portfolio.html#two">Projects</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<div class="course-tag">CMU 15-418/618 · Fall 2026 · Final Project</div>
+                            <h1 class="major">Thread-Based PyTorch DataLoader on Free-Threaded Python</h1>
+							<p class="team">James Tian · TEAMMATE NAME</p>
+
+							<ul class="actions">
+								<li><a href="files/15418_proposal.pdf" class="button primary">Proposal</a></li>
+								<li><span class="button disabled">Milestone Report</span></li>
+								<li><span class="button disabled">Final Report</span></li>
+								<li><span class="button disabled">Poster</span></li>
+								<li><a href="https://github.com/USERNAME/REPO" class="button icon brands fa-github">Code</a></li>
+							</ul>
+
+							<h3>Summary</h3>
+							<div class="placeholder">Paste the SUMMARY section from your proposal here.</div>
+
+							<h3>Status Updates</h3>
+							<ul class="log">
+								<li>
+									<span class="date">2026-11-09</span>
+									<p>Proposal submitted. Environment verified on GHC: free-threaded CPython 3.14t with torch, torchvision, and Pillow; <code>perf c2c</code> available.</p>
+								</li>
+							</ul>
+
+							<h3>Deliverables</h3>
+							<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr><th>Item</th><th>Due</th><th>Status</th></tr>
+									</thead>
+									<tbody>
+										<tr><td>Project proposal</td><td class="when">Mon 11/9</td><td><span class="chip done">Submitted</span></td></tr>
+										<tr><td>Milestone report</td><td class="when">Mon 11/23</td><td><span class="chip todo">Upcoming</span></td></tr>
+										<tr><td>Final report</td><td class="when">Thu 12/10</td><td><span class="chip todo">Upcoming</span></td></tr>
+										<tr><td>Poster session</td><td class="when">Fri 12/11</td><td><span class="chip todo">Upcoming</span></td></tr>
+									</tbody>
+								</table>
+							</div>
+
+							<h3>Schedule</h3>
+							<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr><th>Week</th><th>Plan</th><th>Status</th></tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="when">11/9 – 11/15</td>
+											<td>Proposal; environment setup; measurement harness; multiprocess DataLoader and torchdata baselines; bottleneck characterization</td>
+											<td><span class="chip doing">In progress</span></td>
+										</tr>
+										<tr>
+											<td class="when">11/16 – 11/22</td>
+											<td>Thread backend with correctness checks; per-stage timing and <code>perf c2c</code> diagnosis; milestone report</td>
+											<td><span class="chip todo">Planned</span></td>
+										</tr>
+										<tr>
+											<td class="when">11/23 – 11/29</td>
+											<td>Work-stealing scheduler and ordered delivery; memory-budget backpressure (Thanksgiving week)</td>
+											<td><span class="chip todo">Planned</span></td>
+										</tr>
+										<tr>
+											<td class="when">11/30 – 12/6</td>
+											<td>Zero-copy collation; thread-private transforms and buffer pools; full evaluation and ablations; upstream fix</td>
+											<td><span class="chip todo">Planned</span></td>
+										</tr>
+										<tr>
+											<td class="when">12/7 – 12/11</td>
+											<td>End-to-end training on NCSA Delta A40 (stretch); report and poster</td>
+											<td><span class="chip todo">Planned</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
