@@ -45,7 +45,12 @@
   .btn:hover { border-color: var(--accent); color: var(--accent); }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
   .btn.primary:hover { background: #8f0e15; color: #fff; }
-  .btn.disabled { color: #a3a8b0; pointer-events: none; background: transparent; }
+  .btn.disabled { color: #a3a8b0; pointer-events: none; background: transparent; border-style: dashed; }
+  .btn.primary { padding: 9px 18px; font-size: 15px; font-weight: 600; box-shadow: 0 1px 2px rgba(181,18,27,.25); }
+  .btn { display: inline-flex; align-items: center; gap: 6px; }
+  svg.ext { width: 13px; height: 13px; flex: none; }
+  a.doc-link { color: var(--accent); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+  a.doc-link:hover { text-decoration: underline; }
 
   section { margin-bottom: 44px; }
   h2 { font-size: 20px; margin: 0 0 14px; }
@@ -91,11 +96,11 @@
     <h1>Thread-Based PyTorch DataLoader on Free-Threaded Python</h1>
     <p class="team"><strong>James Tian</strong> (jamestia) · <strong>Yueqi Ren</strong> (yueqir)</p>
     <div class="links">
-      <a class="btn primary" href="proposal.pdf">Proposal</a>
-      <a class="btn disabled" href="#">Milestone Report</a>
-      <a class="btn disabled" href="#">Final Report</a>
-      <a class="btn disabled" href="#">Poster</a>
-      <a class="btn disabled" href="#">Code</a>
+      <a class="btn primary" href="proposal.pdf" target="_blank" rel="noopener">Proposal (PDF)<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 2h5v5M14 2 7 9M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <span class="btn disabled" title="Due 11/23">Milestone Report</span>
+      <span class="btn disabled" title="Due 12/10">Final Report</span>
+      <span class="btn disabled" title="Poster session 12/11">Poster</span>
+      <span class="btn disabled" title="Coming soon">Code</span>
     </div>
   </header>
 
@@ -119,7 +124,7 @@
     <table>
       <thead><tr><th>Item</th><th>Due</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td>Project proposal</td><td class="when">Mon 11/9</td><td><span class="chip done">Submitted</span></td></tr>
+        <tr><td><a class="doc-link" href="proposal.pdf" target="_blank" rel="noopener">Project proposal<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 2h5v5M14 2 7 9M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></td><td class="when">Mon 11/9</td><td><span class="chip done">Submitted</span></td></tr>
         <tr><td>Milestone report</td><td class="when">Mon 11/23</td><td><span class="chip todo">Upcoming</span></td></tr>
         <tr><td>Final report</td><td class="when">Thu 12/10</td><td><span class="chip todo">Upcoming</span></td></tr>
         <tr><td>Poster session</td><td class="when">Fri 12/11</td><td><span class="chip todo">Upcoming</span></td></tr>
