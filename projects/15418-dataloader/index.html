@@ -66,6 +66,12 @@
   tr:last-child td { border-bottom: none; }
   td.when { white-space: nowrap; font-family: var(--mono); font-size: 13px; color: var(--muted); }
 
+  #schedule td.when { vertical-align: middle; border-right: 1px solid var(--line); }
+  #schedule tr.split td { border-bottom: 1px solid #f0f1f3; }
+  #schedule tr.split td.when { border-bottom: 1px solid var(--line); }
+  #schedule td.who { white-space: nowrap; color: var(--muted); font-size: 14px; }
+  #schedule tr.current td { background: #fffdf6; }
+  .when-note { display: block; font-size: 12px; color: var(--muted); }
   .chip { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
   .chip.done  { color: var(--done);  background: var(--done-soft); }
   .chip.doing { color: var(--doing); background: var(--doing-soft); }
@@ -84,7 +90,10 @@
 
   @media (max-width: 600px) {
     h1 { font-size: 26px; }
-    th:nth-child(3), td:nth-child(3) { display: none; }
+    #deliverables th:nth-child(3), #deliverables td:nth-child(3) { display: none; }
+    #schedule th:nth-child(3), #schedule td.who { display: none; }
+    #schedule th, #schedule td { padding: 8px 10px; }
+    #schedule td.when { white-space: normal; width: 72px; }
   }
 </style>
 </head>
@@ -97,7 +106,7 @@
     <p class="team"><strong>James Tian</strong> (jamestia) · <strong>Yueqi Ren</strong> (yueqir)</p>
     <div class="links">
       <a class="btn primary" href="proposal.pdf" target="_blank" rel="noopener">Proposal (PDF)<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 2h5v5M14 2 7 9M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <span class="btn disabled" title="Due 11/23">Milestone Report</span>
+      <a class="btn primary" href="milestone.pdf" target="_blank" rel="noopener">Milestone Report (PDF)<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 2h5v5M14 2 7 9M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <span class="btn disabled" title="Due 12/10">Final Report</span>
       <span class="btn disabled" title="Poster session 12/11">Poster</span>
       <span class="btn disabled" title="Coming soon">Code</span>
@@ -113,6 +122,14 @@
     <h2>Status Updates</h2>
     <ul class="log">
       <li>
+        <span class="date">2026-11-22</span>
+        Thread backend v0 done: <code>ThreadDataLoader</code> is a drop-in replacement for <code>DataLoader</code>, and all correctness tests pass on GHC.
+      </li>
+      <li>
+        <span class="date">2026-11-20</span>
+        Measurement harness, multiprocess and torchdata baselines, and correctness tests in place. Environment set up on ghc46.
+      </li>
+      <li>
         <span class="date">2026-11-09</span>
         Proposal submitted. Environment verified on GHC: free-threaded CPython 3.14t with torch, torchvision, and Pillow; <code>perf c2c</code> available.
       </li>
@@ -125,7 +142,7 @@
       <thead><tr><th>Item</th><th>Due</th><th>Status</th></tr></thead>
       <tbody>
         <tr><td><a class="doc-link" href="proposal.pdf" target="_blank" rel="noopener">Project proposal<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 2h5v5M14 2 7 9M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></td><td class="when">Mon 11/9</td><td><span class="chip done">Submitted</span></td></tr>
-        <tr><td>Milestone report</td><td class="when">Mon 11/23</td><td><span class="chip todo">Upcoming</span></td></tr>
+        <tr><td><a class="doc-link" href="milestone.pdf" target="_blank" rel="noopener">Milestone report<svg class="ext" viewBox="0 0 16 16" aria-hidden="true"><path d="M9 2h5v5M14 2 7 9M12 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></td><td class="when">Mon 11/23</td><td><span class="chip done">Submitted</span></td></tr>
         <tr><td>Final report</td><td class="when">Thu 12/10</td><td><span class="chip todo">Upcoming</span></td></tr>
         <tr><td>Poster session</td><td class="when">Fri 12/11</td><td><span class="chip todo">Upcoming</span></td></tr>
       </tbody>
@@ -135,31 +152,61 @@
   <section id="schedule">
     <h2>Schedule</h2>
     <table>
-      <thead><tr><th>Week</th><th>Plan</th><th>Status</th></tr></thead>
+      <thead><tr><th>Week</th><th>Task</th><th>Owner</th><th>Status</th></tr></thead>
       <tbody>
+        <tr class="split">
+          <td class="when" rowspan="2">11/9 – 11/15</td>
+          <td>Proposal; measurement harness</td>
+          <td class="who">James</td>
+          <td><span class="chip done">Done</span></td>
+        </tr>
         <tr>
-          <td class="when">11/9 – 11/15</td>
-          <td>Proposal; environment setup; measurement harness; multiprocess DataLoader and torchdata baselines; bottleneck characterization</td>
+          <td>GHC environment; multiprocess and torchdata.nodes baselines</td>
+          <td class="who">Yueqi</td>
+          <td><span class="chip done">Done</span></td>
+        </tr>
+        <tr class="split">
+          <td class="when" rowspan="2">11/16 – 11/22</td>
+          <td>Thread backend v0 with correctness tests</td>
+          <td class="who">James</td>
+          <td><span class="chip done">Done</span></td>
+        </tr>
+        <tr>
+          <td>Imagenette benchmark runs; <code>perf c2c</code> diagnosis</td>
+          <td class="who">Yueqi</td>
+          <td><span class="chip done">Done</span></td>
+        </tr>
+        <tr class="split current">
+          <td class="when" rowspan="2">11/23 – 11/29<span class="when-note">Thanksgiving</span></td>
+          <td>Work-stealing scheduler with ordered delivery; memory-budget backpressure</td>
+          <td class="who">James</td>
           <td><span class="chip doing">In progress</span></td>
         </tr>
-        <tr>
-          <td class="when">11/16 – 11/22</td>
-          <td>Thread backend with correctness checks; per-stage timing and <code>perf c2c</code> diagnosis; milestone report</td>
+        <tr class="current">
+          <td>Variable-cost, metadata-heavy, and text workloads</td>
+          <td class="who">Yueqi</td>
+          <td><span class="chip doing">In progress</span></td>
+        </tr>
+        <tr class="split">
+          <td class="when" rowspan="2">11/30 – 12/6</td>
+          <td>Zero-copy collation; thread-private transforms and buffer pools; upstream fix</td>
+          <td class="who">Yueqi</td>
           <td><span class="chip todo">Planned</span></td>
         </tr>
         <tr>
-          <td class="when">11/23 – 11/29</td>
-          <td>Work-stealing scheduler and ordered delivery; memory-budget backpressure (Thanksgiving week)</td>
+          <td>Ablation switches; full evaluation and ablations</td>
+          <td class="who">James</td>
+          <td><span class="chip todo">Planned</span></td>
+        </tr>
+        <tr class="split">
+          <td class="when" rowspan="2">12/7 – 12/11</td>
+          <td>Stretch goals on NCSA Delta</td>
+          <td class="who">James</td>
           <td><span class="chip todo">Planned</span></td>
         </tr>
         <tr>
-          <td class="when">11/30 – 12/6</td>
-          <td>Zero-copy collation; thread-private transforms and buffer pools; full evaluation and ablations; upstream fix</td>
-          <td><span class="chip todo">Planned</span></td>
-        </tr>
-        <tr>
-          <td class="when">12/7 – 12/11</td>
-          <td>End-to-end training on NCSA Delta A40 (stretch); report and poster</td>
+          <td>Final report (12/10); poster graphs; poster session (12/11)</td>
+          <td class="who">James, Yueqi</td>
           <td><span class="chip todo">Planned</span></td>
         </tr>
       </tbody>
